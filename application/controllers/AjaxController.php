@@ -85,6 +85,18 @@ class AjaxController extends CI_Controller {
 		$this->load->model('vote_model');
 		$this->vote_model->setVote($data);
 	}
+
+	public function getChartCommittee()
+	{	
+		$committee=$_POST['committee'];
+		$country=$_POST['country'];
+		$this->load->model('vote_model');
+		$data = $this->vote_model->getCandidateChart($committee, $country);
+
+		//$data = $this->vote_model->getCandidateChart(1, 1);
+
+		echo json_encode($data);
+	}
 }
 
 /* End of file AjaxController.php */

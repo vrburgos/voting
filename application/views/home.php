@@ -4,6 +4,8 @@
 	<title>Home</title>
 
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/c3.css">
+
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -21,7 +23,11 @@
 			
 				<ul class="nav navbar-nav navbar-right">
 					<li><a><?=$username ?></a></li>
-					<li><a href="<?= base_url(); ?>Login/logout">Logout</a></li>		
+					<?php if($username!='')
+					{
+					echo('<li><a href="<?= base_url(); ?>Login/logout">Logout</a></li>');		
+					} 
+					?>		
 				</ul>
 			</div>
 		</div>
@@ -30,7 +36,7 @@
 		
 		<div class="col-md-2">
 			<label>Country:</label>
-			<select class="form-control" id="country" name="country" placeholder="Country">
+			<select class="form-control" id="country" name="country" placeholder="Country" onchange="getCommittees()">
 	                                            
 	        </select>
         </div>
@@ -39,8 +45,9 @@
 
 	</div>
 
-	<script src="<?php echo base_url(); ?>assets/js/jquery-2.2.4.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/ajax/home.js"></script>
+	<script src="<?= base_url(); ?>assets/js/jquery-2.2.4.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/accounting.js"></script>
+    <script src="<?= base_url(); ?>assets/js/ajax/home.js"></script>
 </body>
 </html>

@@ -24,12 +24,9 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a><?=$username ?></a></li>
 
-					<?php if($username!='')
-					{
-					echo('<li><a href="<?= base_url(); ?>Login/logout">Logout</a></li>');		
-					} 
 					
-					?>
+					<li><a href="<?= base_url(); ?>Login/logout">Logout</a></li>
+					
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->

@@ -1,10 +1,12 @@
 
+baseurl = 'http://localhost/voting/'
+
 jQuery(document).ready(function() {
 	
     /*
         Fullscreen background
     */
-    $.backstretch("assets/img/voting.jpg");
+    $.backstretch(baseurl + "/assets/img/voting.jpg");
     
     
         //Form validation

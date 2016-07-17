@@ -56,6 +56,13 @@ class Vote_model extends CI_Model {
 		$this->db->insert('vote',$data);
 	}
 
+	public function getCandidateChart($committee, $country)
+	{
+		$query= $this->db->query("SELECT * FROM((SELECT COUNT(v.idCandidate) as quant, CONCAT(c.name, ' ', c.surnames) as name, c.idCandidate FROM vote as v INNER JOIN candidate as c ON v.idCandidate=c.idCandidate  INNER JOIN committee as comm  ON v.idCommittee = comm.idCommittee WHERE v.idCommittee=".$committee." AND c.idCountry=".$country."  group by v.idCandidate order by quant)as dt,(SELECT COUNT(v.idCandidate) as total FROM vote as v INNER JOIN candidate as c ON v.idCandidate = c.idCandidate where v.idCommittee=".$committee."  AND c.idCountry=".$country." ) as total)");
+
+		return $query->result_array();
+	}
+
 }
 
 /* End of file Vote_model.php */
