@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Vote extends CI_Controller {
 
 	public function __construct()
 	{
@@ -15,13 +15,13 @@ class Home extends CI_Controller {
 		}
 		else
 		{
-			$data = array('username' => '');
+			redirect('login');
 		}	
 		
-		$this->load->view('home', $data);
+		$this->load->view('vote',$data);
 	}
 
 }
 
-/* End of file Home.php */
-/* Location: ./application/controllers/Home.php */
+/* End of file Vote.php */
+/* Location: ./application/controllers/Vote.php */

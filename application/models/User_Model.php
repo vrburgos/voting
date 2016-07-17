@@ -14,21 +14,15 @@ class User_model extends CI_Model {
 	public function signin($username, $password)
 	{
 		
-		$this->db->where('username',$username);
-		$this->db->where('password',$password);
 
-		$query= $this->db->get('user'); 
+
+		$query= $this->db->query("SELECT u.iduser, p.names, p.surnames, p.idCountry FROM user as u INNER JOIN person as p ON u.iduser = p.iduser WHERE u.username='".$username."' AND u.password='".$password."'" ); 
 
 		if ($query->num_rows() > 0) 
 		{ 
-			$user=$query->row_array();
+			return $query->row_array();
 
-			$id= $user['iduser'];
-
-			$this->db->where('iduser',$id);
-
-			$userData = $this->db->get('userdata');
-			return $userData->row_array();
+			
 		}
 		else
 		{
@@ -58,6 +52,15 @@ class User_model extends CI_Model {
 	public function setPerson($personData)
 	{
 		$query=$this->db->insert('person',$personData);
+
+
+	}
+
+
+	public function getCountry()
+	{
+		$query=$this->db->get('country');
+		return $query->result_array();
 	}
 
 

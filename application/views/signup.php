@@ -48,11 +48,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label  class="sr-only" for="form-email">E-mail</label>
-                                        <input type="email" id="email" name="email" placeholder="E-mail..." class="form-email form-control"  required>
+                                        <input type="text" id="email" name="email" placeholder="E-mail..." class="form-email form-control"  required>
                                     </div>
                                     <div class="form-group">
                                         <label  class="sr-only" for="form-document">Document ID</label>
                                         <input type="text" id="document" name="document" placeholder="Document ID..." class="form-document form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="sr-only" for="sel1">Country:</label>
+                                        <select class="form-control" id="sel1" name="sel1" placeholder="Country">
+                                            
+                                        </select>
                                     </div>
 			                    	<div class="form-group">
 			                    		<label  class="sr-only" for="form-username">Username</label>
@@ -85,6 +91,7 @@
         <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.backstretch.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/ajax/login.js"></script>
         
     </body>
 

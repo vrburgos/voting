@@ -12,7 +12,7 @@ class Login extends CI_Controller {
 
 		if ($this->session->userdata('iduser')) {
 
-			redirect('master');
+			redirect('home');
 		}
 
 		$this->load->view('login');
@@ -34,12 +34,12 @@ class Login extends CI_Controller {
 						'iduser'=>$user['iduser'],
 						'names'=>$user['names'],
 						'surnames'=>$user['surnames'],
-						'country'=>$user['country']
+						'country'=>$user['idCountry']
 					);
 				$this->session->set_userdata($data);
 				
-				print_r($data);
-				//redirect('home');
+				//print_r($data);
+				redirect('home');
 			}
 
 	}
@@ -65,20 +65,32 @@ class Login extends CI_Controller {
 			'email' =>$_POST['email'],
 			'id_document'=>$_POST['document'],
 			'iduser'=>$user,
-			'iddepartment'=>1
+			'idcountry'=>$_POST['sel1']
 		);
 
 
 		$person=$this->user_model->setPerson($data);
-		if($person)
-		{
-			redirect('home');
-		}
 		
+		$dataUser= array
+					(
+						'iduser'=>$data['iduser'],
+						'names'=>$data['names'],
+						'surnames'=>$data['surnames'],
+						'country'=>$data['idcountry']
+					);
+		$this->session->set_userdata($dataUser);
 
-
-		
+		redirect('home');
+			
 	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('home','refresh');
+	}
+
+
 
 }
 

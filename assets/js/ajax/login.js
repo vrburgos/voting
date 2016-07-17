@@ -1,19 +1,26 @@
+var baseurl = 'http://localhost/voting/';
+
+$( document ).ready(function() {
+    showCountry();
+});
+
+
 function showCountry()
 {
 
 
+	var _url = baseurl + 'ajaxcontroller/countrylist'
 	$.ajax({
 		type: "POST",
         url: _url,
-        data: {society:_society},
         dataType: "json"
 	})
 	.done(function(response)
 	{
-		$('#cmbClient').append('<option>Seleccione..</option>');
+		$('#sel1').append('<option>Select Country</option>');
 		$(response).each(function () 
 		{
-			$('#cmbClient').append('<option value="'+this.id+'">'+this.nombre+'</option>');
+			$('#sel1').append('<option value="'+this.idCountry+'">'+this.name+'</option>');
 		});
 	});
 }
