@@ -17,13 +17,18 @@ class User_model extends CI_Model {
 		$this->db->where('username',$username);
 		$this->db->where('password',$password);
 
-		$query= $this->db->get('usuario'); 
+		$query= $this->db->get('user'); 
 
-		if ($query->num_rows()>0) 
-		{
+		if ($query->num_rows() > 0) 
+		{ 
+			$user=$query->row_array();
 
-			$userData = $this->db->query('') 
-			return $query->row_array();
+			$id= $user['iduser'];
+
+			$this->db->where('iduser',$id);
+
+			$userData = $this->db->get('userdata');
+			return $userData->row_array();
 		}
 		else
 		{
@@ -31,18 +36,28 @@ class User_model extends CI_Model {
 		}
 	}
 
-	public function setUser($user,$passwor)
+	public function setUser($user,$password)
 	{
-		$data= array(
-			'user'=>$user,
+		$data=array(
+			'username'=>$user,
 			'password'=>$password
 			);
-		$query= $this->db->insert('user',$data)
+
+
+		$query= $this->db->insert('user',$data);
+		
+		$id = $this->db->insert_id();
+		
+		/*$this->db->where('iduser',$id)
+		$user = $this->db->get('user');
+		*/
+		//return $query->row_array();
+		return $id;
 	}
 
-	public function setPerson($data)
+	public function setPerson($personData)
 	{
-
+		$query=$this->db->insert('person',$personData);
 	}
 
 

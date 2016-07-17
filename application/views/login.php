@@ -41,7 +41,7 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form method="POST" action="">
+			                    <form method="POST" action="<?= base_url(); ?>Login/signin">
 			                    	<div class="form-group">
 			                    		<label  class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" id="username" name="username" placeholder="username..." class="form-username form-control">

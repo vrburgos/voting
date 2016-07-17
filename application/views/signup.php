@@ -36,7 +36,7 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form method="POST" action="<?= base_url(); ?>Login/signup">
+			                    <form method="POST" action="<?= base_url(); ?>Login/register">
                                 <div class="form-group">
                                         <label  class="sr-only" for="form-name">Names</label>
                                         <input type="text" id="name" name="name" placeholder="Names..." class="form-name form-control" required>
@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label  class="sr-only" for="form-email">E-mail</label>
-                                        <input type="text" id="email" name="email" placeholder="E-mail..." class="form-email form-control"  required>
+                                        <input type="email" id="email" name="email" placeholder="E-mail..." class="form-email form-control"  required>
                                     </div>
                                     <div class="form-group">
                                         <label  class="sr-only" for="form-document">Document ID</label>
@@ -64,7 +64,7 @@
 			                        </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Confirm Password</label>
-                                        <input type="password" id="password" name="password" placeholder=" Confirm password..." class="form-password form-control" required>
+                                        <input type="password" id="re-password" name="re-password" placeholder=" Confirm password..." class="form-password form-control" required>
                                     </div>
                                     
                                     
