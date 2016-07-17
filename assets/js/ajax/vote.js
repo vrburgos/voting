@@ -53,9 +53,9 @@ function getCandidates(_committee)
 				$('#committee'+this.idcommittee).append('<div class="col-md-3">'+
 						
 						'<div class="form-group">'+
-							'<label for="department">Candidate</label>:' +this.name + ' ' +this.surnames +
+							'<label>Candidate</label>:' +this.name + ' ' +this.surnames +
 							
-							'<button class="btn btn-success" onclick="vote('+this.idcandidate+', '+this.idcommittee+')">Vote</button>'+
+							'<br><button class="btn btn-success" onclick="vote('+this.idcandidate+', '+this.idcommittee+')">Vote</button>'+
 						'</div>'+
 						
 					'</div>');
